@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting…</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Primary redirect -->
+  <meta http-equiv="refresh" content="2; url=https://example.com/landing">
+  <style>
+    :root {
+      --bg: #0d1117;
+      --fg: #c9d1d9;
+      --accent: #58a6ff;
+      --border: #30363d;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #ffffff;
+        --fg: #24292f;
+        --accent: #0969da;
+        --border: #d0d7de;
+      }
+    }
+    body {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+    }
+    .box {
+      text-align: center;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2.5rem 3rem;
+      max-width: 420px;
+    }
+    .spinner {
+      border: 3px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 1rem;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    code {
+      background: var(--border);
+      padding: 2px 6px;
+      border-radius: 4px;
+      cursor: pointer;
+      user-select: all;
+    }
+  </style>
+  <script>
+    // Immediate JS redirect (fallback)
+    window.location.replace("https://example.com/landing");
+  </script>
+</head>
+<body>
+  <div class="box">
+    <div class="spinner"></div>
+    <h2>Redirecting…</h2>
+    <p>If you are not redirected automatically, click <a href="https://example.com/landing">here</a>.</p>
+    <p><small>Target URL: <code id="url">https://example.com/landing</code></small></p>
+  </div>
+
+  <script>
+    // Optional: copy URL to clipboard on click
+    document.getElementById("url").addEventListener("click", () => {
+      navigator.clipboard.writeText("https://example.com/landing");
+    });
+  </script>
+</body>
+</html>
